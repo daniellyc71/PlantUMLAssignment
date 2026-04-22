@@ -28,7 +28,8 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                bat 'docker build -t plantuml-staging .'
+                bat 'dir build\\libs'
+       					bat 'java -jar build\\libs\\plantuml.jar'
             }
         }
     }
