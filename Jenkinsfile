@@ -29,7 +29,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 bat 'dir build\\libs'
-       					bat 'java -jar build\\libs\\plantuml.jar'
+       					bat 'java -jar build\\libs\\plantuml-1.2026.3beta8.jar -version'
             }
         }
     }
