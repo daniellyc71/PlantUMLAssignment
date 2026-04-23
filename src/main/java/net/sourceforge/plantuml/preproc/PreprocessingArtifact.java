@@ -54,6 +54,7 @@ public class PreprocessingArtifact implements WarningHandler {
 	private final Set<Warning> warnings = new LinkedHashSet<>();
 
 	@Override
+	//narsha
 	public void addWarning(Warning warning) {
 		if (warning != null) {
 			this.warnings.add(warning);
