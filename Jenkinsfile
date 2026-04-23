@@ -28,11 +28,12 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                bat 'echo @startuml > sample.puml'
-                bat 'echo Alice -> Bob: Hello from Jenkins >> sample.puml'
-                bat 'echo @enduml >> sample.puml'
-                bat 'java -jar build\\libs\\plantuml-1.2026.3beta8.jar sample.puml'
-                bat 'dir'
+                 bat 'echo @startuml > sample.puml'
+        				 bat 'echo Alice -^> Bob: Hello from Jenkins >> sample.puml'
+       					 bat 'echo @enduml >> sample.puml'
+       					 bat 'type sample.puml'
+       					 bat 'java -jar build\\libs\\plantuml-1.2026.3beta8.jar sample.puml'
+      					 bat 'dir'
             }
         }
     }
