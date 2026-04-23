@@ -28,8 +28,11 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                bat 'dir build\\libs'
-       					bat 'java -jar build\\libs\\plantuml-1.2026.3beta8.jar -version'
+                bat 'echo @startuml > sample.puml'
+                bat 'echo Alice -> Bob: Hello from Jenkins >> sample.puml'
+                bat 'echo @enduml >> sample.puml'
+                bat 'java -jar build\\libs\\plantuml-1.2026.3beta8.jar sample.puml'
+                bat 'dir'
             }
         }
     }
@@ -39,6 +42,8 @@ pipeline {
             archiveArtifacts artifacts: 'build/libs/*.jar', fingerprint: true, allowEmptyArchive: true
             archiveArtifacts artifacts: 'build/reports/tests/test/**', allowEmptyArchive: true
             archiveArtifacts artifacts: 'build/reports/jacoco/test/html/**', allowEmptyArchive: true
+            archiveArtifacts artifacts: '*.png', allowEmptyArchive: true
+            archiveArtifacts artifacts: '*.puml', allowEmptyArchive: true
             echo 'Cleaning up workspace'
             deleteDir()
         }
