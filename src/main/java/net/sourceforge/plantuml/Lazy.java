@@ -53,7 +53,7 @@ public class Lazy<T> {
 	}
 
 	public synchronized T get() {
-		if (initialized == false) {
+		if (!initialized) {
 			value = supplier.get();
 			initialized = true;
 		}
