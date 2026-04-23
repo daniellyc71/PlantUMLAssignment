@@ -54,7 +54,7 @@ public class NullOutputStream extends OutputStream {
 	 * Overridden for performance reason
 	 */
 	@Override
-	public void write(byte b[]) throws IOException {
+	public void write(byte[] b) throws IOException {
 		// Do nothing silently
 	}
 
@@ -62,7 +62,7 @@ public class NullOutputStream extends OutputStream {
 	 * Overridden for performance reason
 	 */
 	@Override
-	public void write(byte b[], int off, int len) throws IOException {
+	public void write(byte[] b, int off, int len) throws IOException {
 		// Do nothing silently
 	}
 
