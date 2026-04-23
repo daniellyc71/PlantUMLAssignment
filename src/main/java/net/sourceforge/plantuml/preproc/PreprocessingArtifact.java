@@ -42,6 +42,7 @@ import java.util.Set;
 import net.sourceforge.plantuml.warning.Warning;
 import net.sourceforge.plantuml.warning.WarningHandler;
 
+
 public class PreprocessingArtifact implements WarningHandler {
 
 	private final ConfigurationStore<OptionKey> option = ConfigurationStore.createEmpty();
@@ -54,8 +55,9 @@ public class PreprocessingArtifact implements WarningHandler {
 
 	@Override
 	public void addWarning(Warning warning) {
-		if (warning != null)
+		if (warning != null) {
 			this.warnings.add(warning);
+		}
 	}
 
 	@Override
